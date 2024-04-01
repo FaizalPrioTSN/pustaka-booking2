@@ -43,26 +43,26 @@
  </button>
  </div>
  <form action="<?= base_url('member/daftar'); ?>" method="post">
- <div class="modal-body">
- <div class="form-group">
- <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama Lengkap">
+    <div class="modal-body">
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama Lengkap">
+ </div>
+<div class="form-group">
+    <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Alamat Lengkap">
+ </div>
+<div class="form-group">
+    <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Alamat Email">
+ </div>
+<div class="form-group">
+    <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
  </div>
  <div class="form-group">
- <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Alamat Lengkap">
- </div>
- <div class="form-group">
- <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Alamat Email">
- </div>
- <div class="form-group">
- <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
- </div>
- <div class="form-group">
- <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Ulangi Password">
+    <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Ulangi Password">
  </div>
  </div>
  <div class="modal-footer">
- <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
- <button type="submit" class="btn btn-outline-primary">Simpan</button>
+    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-outline-primary">Simpan</button>
  </div>
  </form>
  </div>
