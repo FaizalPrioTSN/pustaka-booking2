@@ -2,6 +2,12 @@
     <div style="padding: 25px;">
         <div class="x_panel">
             <div class="x_content">
+
+    <php if(validation_errors()){?>
+    <div class="alert alert-danger" role="alert">
+        <?=validation_errors();?>
+    </div>
+    <php }?>
  <!-- Tampilkan semua produk -->
                 <div class="row">
  <!-- looping products -->
@@ -22,9 +28,11 @@ if ($buku->stok < 1) {
  }
  ?>
     <a class="btn btn-outline-warning fas fw fa-search" href="<?= base_url('home/detailBuku/' . $buku->id); ?>"> Detail</a></p>
+
             </div>
         </div>
-    </div> <?php } ?>
+    </div> 
+    <?php } ?>
  <!-- end looping -->
                 </div>
             </div>
