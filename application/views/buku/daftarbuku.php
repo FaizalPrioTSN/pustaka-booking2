@@ -3,6 +3,22 @@
         <div class="x_panel">
             <div class="x_content">
 
+<?= $this->session->flashdata('pesan'); ?>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-left my-5">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" ariadisabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+
+
     <php if(validation_errors()){?>
     <div class="alert alert-danger" role="alert">
         <?=validation_errors();?>
