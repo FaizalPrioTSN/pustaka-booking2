@@ -3,7 +3,7 @@
         <div class="x_panel">
             <div class="x_content">
 
-<?= $this->session->flashdata('pesan'); ?>
+
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-left my-5">
         <li class="page-item disabled">

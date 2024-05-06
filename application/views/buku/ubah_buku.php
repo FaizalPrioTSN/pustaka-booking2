@@ -1,6 +1,5 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <?= $this->session->flashdata('pesan'); ?>
     <div class="row">
         <div class="col-lg-6">
             <?php if (validation_errors()) { ?>
@@ -8,7 +7,6 @@
                     <?= validation_errors(); ?>
                 </div>
             <?php } ?>
-            <?= $this->session->flashdata('pesan'); ?>
             <?php foreach ($buku as $b) { ?>
                 <form action="<?= base_url('buku/ubahBuku'); ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">

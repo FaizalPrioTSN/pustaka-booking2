@@ -30,38 +30,41 @@ class Autentifikasi extends CI_Controller
     }
 
     private function _login()
-    {
-        $email = htmlspecialchars($this->input->post('email', true));
-        $password = $this->input->post('password', true);
-
-        $user = $this->ModelUser->cekData(['email' => $email])->row_array();
-
-        //jika usernya ada
-        if ($user) {
-            //jika user sudah aktif
-            if ($user['is_active'] == 1) {
-                //cek password
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'email' => $user['email'],
-                        'role_id' => $user['role_id']
-                    ];
-
-                    $this->session->set_userdata($data);
-                    redirect('admin');
-                } else {
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Password salah!!</div>');
-                    redirect('autentifikasi');
-                }
-            } else {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">User belum diaktifasi!!</div>');
-                redirect('autentifikasi');
-            }
-        } else {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message" role="alert">Email tidak terdaftar!!</div>');
-            redirect('autentifikasi');
-        }
+ {
+    $email = htmlspecialchars($this->input->post('email', true));
+    $password = $this->input->post('password', true);
+    $user = $this->ModelUser->cekData(['email' => $email])->row_array();
+    //jika usernya ada
+    if ($user) {
+    if ($user['role_id'] == 1) {
+    //jika user sudah aktif
+    if ($user['is_active'] == 1) {
+    //cek password
+    if (password_verify($password, $user['password'])) {
+    $data = [
+    'email' => $user['email'],
+    'role_id' => $user['role_id']
+    ];
+    $this->session->set_userdata($data);
+    redirect('admin');
+    } else {
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message"role="alert">Password salah!!</div>');
+    redirect('autentifikasi');
     }
+    } else {
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message"role="alert">User belum diaktifasi!!</div>');
+    redirect('autentifikasi');
+    }
+    } else {
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message"role="alert">Anda Tidak Diizinkan!!</div>');
+    redirect('autentifikasi');
+    }
+    } else {
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-message"role="alert">Email tidak terdaftar!!</div>');
+    redirect('autentifikasi');
+    }
+ }
+
 
     public function registrasi()
     {
@@ -118,24 +121,5 @@ class Autentifikasi extends CI_Controller
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Selamat!! akun member anda sudah dibuat. Silahkan Aktivasi Akun anda</div>');
             redirect('autentifikasi');
         }
-    }
-
-    public function logout()
-    {
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('role_id');
-        
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-message" role="alert">Anda telah logout!!</div>');
-        redirect('autentifikasi');
-    }
-
-    public function blok()
-    {
-        $this->load->view('autentifikasi/blok');
-    }
-
-    public function gagal()
-    {
-        $this->load->view('autentifikasi/gagal');
     }
 }
