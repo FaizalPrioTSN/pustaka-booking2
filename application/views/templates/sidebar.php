@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a class="nav-link pb-0" href="<?= base_url('buku'); ?>">
                             <i class="fas fa-book-open"></i>
-                            <span>Data Buku (<?=$this->db->query("select*from buku")->num_rows();?>Data)</span></a>
+                            <span>Data Buku (<?=$this->db->query("select*from buku")->num_rows();?> Data)</span></a>
 
                         </li>
                         <li class="nav-item">
